@@ -2,9 +2,18 @@
 
 set -e
 
-echo "=============================="
+echo "================================"
 echo "SETUP JAVA + VSCODE EMPRESA"
-echo "=============================="
+echo "================================"
+
+AVAILABLE=$(df --output=avail -BG / | tail -1 | tr -dc '0-9')
+
+echo "Espaço disponível em disco: ${AVAILABLE}GB"
+
+if [ "$AVAILABLE" -lt 10 ]; then
+    echo "ERRO: Espaço insuficiente para instalação."
+    exit 1
+fi
 
 echo "Atualizando repositórios..."
 sudo apt update
