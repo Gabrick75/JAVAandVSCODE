@@ -12,11 +12,13 @@ sudo apt update
 # -----------------------------
 # JAVA 21
 # -----------------------------
-if java -version 2>&1 | grep "21" > /dev/null; then
-    echo "Java 21 já instalado."
-else
-    echo "Instalando OpenJDK 21..."
+echo "Verificando qual java instalar"
+if apt-cache search openjdk-21-jdk | grep openjdk-21-jdk > /dev/null; then
+    echo "Instalando JDK 21"
     sudo apt install -y openjdk-21-jdk
+else
+    echo "JDK 21 não encontrado, instalando JDK 17"
+    sudo apt install -y openjdk-17-jdk
 fi
 
 # -----------------------------
