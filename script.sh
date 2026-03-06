@@ -3,7 +3,7 @@
 set -e
 
 echo "================================"
-echo "SETUP JAVA + VSCODE EMPRESA"
+echo "SETUP JAVA + VSCODE"
 echo "================================"
 
 AVAILABLE=$(df --output=avail -BG / | tail -1 | tr -dc '0-9')
